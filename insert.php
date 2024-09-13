@@ -3,7 +3,7 @@ include 'connection.php';
 
 $sql = "SHOW TABLES LIKE 'emails'";
 $result = $conn->query($sql);
-if ($result) {
+if (!$result->num_rows) {
 	$sql = "CREATE TABLE emails (
 	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(30) NOT NULL,
