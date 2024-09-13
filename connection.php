@@ -1,8 +1,10 @@
  <?php
-$servername = "localhost"; // Server name where the app has the DB
-$username = "root"; // user of the DB 
-$password = "root"; // password of the DB
-$dbname = "mono"; // DB name 
+$env = parse_ini_file('.env');
+
+$servername = $env["DB_HOST"] ?: ""; // Server name where the app has the DB
+$username = $env["DB_USERNAME"] ?:  ""; // user of the DB 
+$password = $env["DB_PASSWORD"] ?:  ""; // password of the DB
+$dbname = $env["DB_DATABASE"] ?:  ""; // DB name 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
